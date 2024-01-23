@@ -20,6 +20,7 @@ To get started with this template, follow these simple steps:
 
 ```bash
 git clone https://github.com/OmarAfet/nextjs-template.git .
+git remote rm origin
 npm i
 npm run dev
 ```
