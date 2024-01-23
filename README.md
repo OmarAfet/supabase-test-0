@@ -4,9 +4,9 @@ Hello there! Welcome to the About page for the Next.js template crafted by @Omar
 
 ## Technologies Used
 
-- [NextJS](https://nextjs.org/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [Shadcn UI](https://ui.shadcn.com/)
+- [NextJS](https://nextjs.org/) - The React Framework for the Web
+- [TailwindCSS](https://tailwindcss.com/) - A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+- [Shadcn UI](https://ui.shadcn.com/) - Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.
 
 ## Features
 
