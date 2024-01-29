@@ -9,7 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { signUp } from "@/actions/auth";
 import { useToast } from "../ui/use-toast";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+import LoadingIcon from "@/icons/LoadingIcon";
 
 export const signUpSchema = z
 	.object({
@@ -23,7 +24,7 @@ export const signUpSchema = z
 	});
 
 export default function Signup() {
-	const router = useRouter();
+	const [Loading, setLoading] = useState(false);
 	const { toast } = useToast();
 	const form = useForm<z.infer<typeof signUpSchema>>({
 		resolver: zodResolver(signUpSchema),
@@ -35,6 +36,7 @@ export default function Signup() {
 	});
 
 	async function handleSubmit(values: z.infer<typeof signUpSchema>) {
+		setLoading(true);
 		const res = await signUp(values);
 		toast({
 			title: res.status ? "Success" : "Error",
@@ -42,8 +44,9 @@ export default function Signup() {
 		});
 
 		if (res.status) {
-			router.push("/");
+			window.location.href = "/";
 		}
+		setLoading(false);
 	}
 
 	return (
@@ -96,7 +99,8 @@ export default function Signup() {
 						/>
 					</CardContent>
 					<CardFooter>
-						<Button className="flex-1" type="submit">
+						<Button disabled={Loading} className="flex-1" type="submit">
+							{Loading && <LoadingIcon className="text-background" />}
 							Signup
 						</Button>
 					</CardFooter>

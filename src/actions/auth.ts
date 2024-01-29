@@ -50,3 +50,16 @@ export async function login(values: z.infer<typeof loginSchema>): Promise<AuthRe
 
 	return { status: true, message: "Login successfully." };
 }
+
+export async function logout(): Promise<AuthResponse> {
+	const cookieStore = cookies();
+	const supabase = createClient(cookieStore);
+
+	const { error } = await supabase.auth.signOut();
+
+	if (error) {
+		return { status: false, message: "Logout failed." };
+	}
+
+	return { status: true, message: "Logout successfully." };
+}

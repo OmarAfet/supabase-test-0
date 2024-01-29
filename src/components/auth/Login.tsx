@@ -10,7 +10,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import Link from "next/link";
 import { login } from "@/actions/auth";
 import { useToast } from "../ui/use-toast";
-import { useRouter } from "next/navigation";
+import LoadingIcon from "@/icons/LoadingIcon";
+import { useState } from "react";
 
 export const loginSchema = z.object({
 	email: z.string().email(),
@@ -18,7 +19,7 @@ export const loginSchema = z.object({
 });
 
 export default function Login() {
-	const router = useRouter();
+	const [Loading, setLoading] = useState(false);
 	const { toast } = useToast();
 
 	const form = useForm<z.infer<typeof loginSchema>>({
@@ -30,6 +31,7 @@ export default function Login() {
 	});
 
 	async function handleSubmit(values: z.infer<typeof loginSchema>) {
+		setLoading(true);
 		const res = await login(values);
 		toast({
 			title: res.status ? "Success" : "Error",
@@ -37,8 +39,9 @@ export default function Login() {
 		});
 
 		if (res.status) {
-			router.push("/");
+			window.location.href = "/";
 		}
+		setLoading(false);
 	}
 
 	return (
@@ -81,7 +84,8 @@ export default function Login() {
 						/>
 					</CardContent>
 					<CardFooter>
-						<Button className="flex-1" type="submit">
+						<Button disabled={Loading} className="flex-1" type="submit">
+							{Loading && <LoadingIcon className="text-background" />}
 							Login
 						</Button>
 					</CardFooter>
