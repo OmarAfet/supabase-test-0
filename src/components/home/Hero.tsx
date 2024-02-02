@@ -14,7 +14,7 @@ export default function Hero() {
 				</p>
 			</div>
 			<div className="flex gap-4">
-				<Link href="/">
+				<Link href="/auth">
 					<Button>Get Started</Button>
 				</Link>
 				<Link href="/about">
