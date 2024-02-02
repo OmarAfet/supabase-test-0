@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import CodeBlock from "@/components/common/CodeBlock";
 import Link from "next/link";
 import getCode from "@/lib/getCodeContent";

@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-static";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -59,6 +61,7 @@ export default function Contact() {
 			.catch((error) => {
 				console.error("Failed to send embedded message:", error);
 			});
+		form.reset();
 	}
 
 	return (
