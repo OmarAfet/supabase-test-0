@@ -1,5 +1,5 @@
 export const metadata = {
-	title: "ToDos",
+	title: "To Dos",
 };
 
 export default function ToDosLayout({ children }: { children: React.ReactNode }) {

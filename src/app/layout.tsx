@@ -11,10 +11,12 @@ const font = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: {
-		template: "%s | NextJS Template",
-		default: "NextJS Template by @OmarAfet",
+		template: "%s | Todo App",
+		default: "Todo App",
 	},
-	description: "A NextJS template with TailwindCSS, TypeScript, and more. made by @OmarAfet",
+	description: "A simple todo app built with Supabase, Next.js and Tailwind CSS.",
+	creator: "Omar Afet",
+	keywords: ["todo", "app", "supabase", "next.js", "tailwindcss"],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
