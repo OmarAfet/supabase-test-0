@@ -61,9 +61,12 @@ export default function Menu() {
 				<SheetFooter>
 					{user ? (
 						<SheetClose className="flex-1" asChild>
-							<Button onClick={handleLogout} variant="destructive">
-								Logout
-							</Button>
+							<div className="flex flex-col gap-2 text-center">
+								<div>{user.email}</div>
+								<Button onClick={handleLogout} variant="destructive">
+									Logout
+								</Button>
+							</div>
 						</SheetClose>
 					) : (
 						<SheetClose className="flex-1" asChild>

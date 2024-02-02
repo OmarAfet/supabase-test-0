@@ -18,7 +18,7 @@ export default async function Header() {
 			<Logo />
 			<div className="flex gap-4 items-center">
 				{user ? (
-					<div>{email}</div>
+					<div className="max-md:hidden">{email}</div>
 				) : (
 					<Link href="/login" className="link">
 						Login

@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import LoadingIcon from "@/icons/LoadingIcon";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
@@ -34,38 +33,35 @@ export default function ToDosForm() {
 	}
 
 	return (
-		<>
-			<Card className="h-fit sticky top-20">
-				<CardHeader>
-					<CardTitle className="mt-0">Add a ToDo</CardTitle>
-					<CardDescription>Enter a title for your new ToDo.</CardDescription>
-				</CardHeader>
-				<CardContent>
-					<Form {...form}>
-						<form id="todoForm" onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-4">
-							<FormField
-								control={form.control}
-								name="title"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>Title</FormLabel>
-										<FormControl>
-											<Input {...field} placeholder="Enter your title" type="title" />
-										</FormControl>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-						</form>
-					</Form>
-				</CardContent>
-				<CardFooter>
-					<Button disabled={loading} type="submit" form="todoForm" className="flex-1">
-						{loading ? <LoadingIcon className="h-6 w-6 text-background" /> : "Add ToDo"}
-					</Button>
-				</CardFooter>
-			</Card>
-			<Separator orientation="vertical" />
-		</>
+		<Card className="h-fit md:sticky top-20">
+			<CardHeader>
+				<CardTitle className="mt-0">Add a ToDo</CardTitle>
+				<CardDescription>Enter a title for your new ToDo.</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<Form {...form}>
+					<form id="todoForm" onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-4">
+						<FormField
+							control={form.control}
+							name="title"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel>Title</FormLabel>
+									<FormControl>
+										<Input {...field} placeholder="Enter your title" type="title" />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+					</form>
+				</Form>
+			</CardContent>
+			<CardFooter>
+				<Button disabled={loading} type="submit" form="todoForm" className="flex-1">
+					{loading ? <LoadingIcon className="h-6 w-6 text-background" /> : "Add ToDo"}
+				</Button>
+			</CardFooter>
+		</Card>
 	);
 }
