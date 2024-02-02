@@ -5,7 +5,7 @@ export default function Logo() {
 	return (
 		<Link href="/" className="flex items-center gap-2 cursor-pointer">
 			<Vercel />
-			<div className="text-xl font-bold">Logo</div>
+			<div className="text-xl font-bold">ToDO</div>
 		</Link>
 	);
 }

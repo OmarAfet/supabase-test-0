@@ -4,6 +4,8 @@ import { ModeToggle } from "./ModeToggle";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
 import Menu from "./Menu";
+import { buttonVariants } from "../ui/button";
+import { RxGithubLogo } from "react-icons/rx";
 
 export default async function Header() {
 	const cookie = cookies();
@@ -23,6 +25,9 @@ export default async function Header() {
 					</Link>
 				)}
 				<div>
+					<Link href="https://github.com/OmarAfet" className={buttonVariants({ variant: "ghost", size: "icon" })}>
+						<RxGithubLogo className="h-6 w-6" />
+					</Link>
 					<ModeToggle />
 					<Menu />
 				</div>

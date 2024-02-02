@@ -5,13 +5,8 @@ export default function Hero() {
 	return (
 		<div className="center flex-col space-y-8">
 			<div className="flex-col center space-y-4">
-				<h1>Welcome to Logo</h1>
-				<p className="text-muted-foreground">
-					A NextJS Template Made by{" "}
-					<Link target="_blank" className="link" href={"https://github.com/OmarAfet"}>
-						@OmarAfet
-					</Link>
-				</p>
+				<h1>Welcome to Todo</h1>
+				<p className="text-muted-foreground">Keep track of your tasks with our simple and intuitive app.</p>
 			</div>
 			<div className="flex gap-4">
 				<Link href="/auth">
